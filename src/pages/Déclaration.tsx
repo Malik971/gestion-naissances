@@ -1,6 +1,16 @@
-import { DECLARATION, FORMAT_DATE, getStatusColor, getStatusLabel } from "../utils";
+import { useEffect, useState } from "react";
+import { FORMAT_DATE, getStatusColor, getStatusLabel } from "../utils";
 
 function Déclaration() {
+  const [declaration, setDeclaration] = useState<any>([]);
+  const search = async () => {
+    const reponse = await fetch("http://localhost:3000/declarations");
+    const data = await reponse.json();
+    setDeclaration(data);
+  }
+  useEffect(() =>{
+    search();
+  }, []);
   return (
     <section className="border-2 bg-white shadow-md rounded-lg p-4">
       <article className="grid grid-cols-12 text-gray-700 font-bold col-span-2 items-center">
@@ -13,7 +23,7 @@ function Déclaration() {
         <span className={`p-2 text-center`}>Statut</span>
         <span>ACTIONS</span>
       </article>
-      {DECLARATION.map((item, index) => (
+      {declaration.map((item: any, index: number) => (
         <article
           key={item.id}
           className={`grid grid-cols-12 text-gray-700 border-b ${
