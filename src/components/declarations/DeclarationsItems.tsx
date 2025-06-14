@@ -4,10 +4,11 @@ import { FaSort } from "react-icons/fa";
 
 type Props = {
   declaration: Declaration[];
+  sortByStatus: () => void;
 };
 
 function DeclarationsItems(props: Props) {
-  const { declaration } = props;
+  const { declaration, sortByStatus } = props;
 
   return (
     <>
@@ -20,13 +21,14 @@ function DeclarationsItems(props: Props) {
         <span className={`p-2  col-span-2 flex flex-col`}>Parent 2</span>
         <button
           type="button"
-          className={`p-2 text-center flex justify-between items-center`}
+          onClick={() => sortByStatus()}
+          className={`p-2 text-center flex justify-between items-center cursor-pointer hover:text-blue-600 transition`}
         >
           Statut <FaSort />
         </button>
         <span className={`p-2 text-center col-span-2`}>ACTIONS</span>
       </article>
-      {declaration.map((item: Declaration, index: number) => (
+      {declaration?.map((item: Declaration, index: number) => (
         <DeclarationArticle declaration={item} index={index} key={item.id} />
       ))}
     </>
