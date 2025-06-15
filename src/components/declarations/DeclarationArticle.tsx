@@ -35,8 +35,8 @@ function DeclarationArticle({declaration: item, index}: Props) {
             <span>{item.firstParent.lastName}</span>
           </span>
           <span className={`p-2 col-span-2 flex flex-col`}>
-            <span>{item.seconParent.firstName}</span>
-            <span>{item.seconParent.lastName}</span>
+            <span>{item.secondParent.firstName}</span>
+            <span>{item.secondParent.lastName}</span>
           </span>
           <StatusBadge status={item.status} />
           <ActionButton classes="p-2 col-span-2 flex flex-col" action={() => null}>
