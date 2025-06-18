@@ -4,7 +4,7 @@ import type { Profile } from "./Profiles";
 export type Declaration = {
   company: Company;
   firstParent: Profile;
-  secondParent: Profile;
+  seconParent: Profile;
   registered: string;
   id: string | number;
   status: string;
