@@ -1,7 +1,9 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { NAV_LINKS } from "@/utils/data";
 
 function Nav() {
+  const navigate = useNavigate();
+
   return (
     <nav className="z-index bg-white shadow-2xl w-56 fixed flex flex-col justify-between top-0 left-0 bottom-0 ">
       <Link
@@ -29,7 +31,7 @@ function Nav() {
         ))}
       </ul>
       <button
-        onClick={() => null}
+        onClick={() => navigate("/private/Contact")}
         className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors duration-300"
       >
         Déconnexion
